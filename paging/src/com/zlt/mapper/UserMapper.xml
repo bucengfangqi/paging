@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlt.mapper.UserMapper">
+<resultMap type="com.zlt.bean.Users" id="resultCollection">
+	<id column="id" property="id"/>
+	<result column="txt" property="txt"/>
+</resultMap>
+
+	<insert id="addAdvice" parameterType="String">
+		insert into advice (txt) values (#{txt})
+	</insert>
+	<select id="getPageLimit0" resultType="com.zlt.bean.Users">
+		select id,txt from advice limit #{limitpage},#{howManyPages}
+	</select>
+	<select id="getPageLimit1" resultType="int">
+		select count(*) from advice
+	</select>
+</mapper>
